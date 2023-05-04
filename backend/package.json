@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A full stack project that keeps tracks of deliveries transported from to place another ",
   "main": "index.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/index.js"

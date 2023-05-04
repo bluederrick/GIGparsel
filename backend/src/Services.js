@@ -29,4 +29,4 @@ export const ValidateUserName = async username => {
 // hash user password
 export const Hash = async object => async item => {
     await bcrypt.hash(object, item)
-}
+} 

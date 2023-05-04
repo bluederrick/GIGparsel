@@ -1,6 +1,7 @@
 const express = requrie('express')
 const jwt = require('jsonwebtoken')
-const generateToken = require('../utils/generateId')
+
+
 
 
 export const generateToken = async (data, secretKey) => {

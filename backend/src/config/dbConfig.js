@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/gigprojects").then(() => {
     console.log("database connection established")
 }).catch(err => {
-    console.log(err, `in connecting with database`)
+    Loggers.log(err, `in connecting with database`)
 });
 
 

@@ -8,8 +8,13 @@ const sendEmail = require('../utils/emailService.js');
 const verify = require('../Services')
 
 
+const generateToken = require('../utils/generateId')
+
+// define secert key  
+const { access_token } = process.env;
 
 
+// user Registration endpoint
 const userRegistration = async (req, res) => {
 
     const { username, fullname, password, email } = req.body;
@@ -25,15 +30,23 @@ const userRegistration = async (req, res) => {
         }
 
         const hashedPassword = verify.Hash(password, salt);
-        const Token = generateToken()
+        const Token = generateToken(access_token, email)
 
-        const u = new user({
-            username,
-            fullname,
-            password: hashedPassword,
-            email,
-            Token
-        }).save();
+        // const UserDetails = new user({
+        //     username,
+        //     fullname,
+        //     password: hashedPassword,
+        //     email,
+        //     Token
+        // }).save();
+
+        const UserDetails = new user({
+            ...others
+        })
+        
+            (await UserDetails).save().then(() => {
+                res.status(200).send.json({ message: 'successfullname', password: hashed })
+            })
 
         console.log('________________________________');
         await sendEmail('Test@test.com', 'Anybody@gmail.com', 'TESTING SMPT', 'Lorem Ipsuim')
